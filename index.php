@@ -6,11 +6,11 @@ echo "php\n ";
 echo "my first php script\n";
 function myTest(){
     static $y=10;
-    echo "Test variables inside the function:\n";//Ô´´úÂëÖĞÊµÏÖ»»ĞĞ
+    echo "Test variables inside the function:\n";//æºä»£ç ä¸­å®ç°æ¢è¡Œ
     echo $y;
     $y++;
     echo "\n";
-    echo "</br>";//ÔÚÍøÒ³ÖĞÊµÏÖÁË»»ĞĞ
+    echo "</br>";//åœ¨ç½‘é¡µä¸­å®ç°äº†æ¢è¡Œ
  }
  myTest();
  echo "Test variables outside the function:\n";
@@ -51,4 +51,34 @@ echo "\n";
  echo strlen($txt1);
  echo "\n";
  echo strpos($txt1, r)."\n";
+ $x1=array(a=>"red",b=>"blue");
+ $y1=array(a=>"blue",b=>"red");
+ $z=$x1+$y1;
+ var_dump($z);
+ echo "\n";
+ var_dump($x1!=$y1);
+ echo "\n";
+ echo  count($cars);
+ echo "\n";
+ echo $x1["a"];
+ echo "\n";
+ foreach ($x1 as $x){
+     echo $x."\n";
+ }
+ //å°†æ•°ç»„è¿›è¡Œæ’åº
+ $number=array(1,23,45,36,7,8,88);
+ sort($number);//å‡åº
+ $arrlen=count($number);
+ for($i=0;$i<$arrlen;$i++)
+ {
+     echo $number[$i];
+     echo " ";
+ }
+ echo "\n";
+ rsort($number);//é™åºæ’åˆ—
+ for($i=0;$i<$arrlen;$i++){
+     echo $number[$i];
+     echo" ";
+ }
+ echo "\n";
  ?>
