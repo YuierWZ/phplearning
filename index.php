@@ -1,16 +1,24 @@
 <?php 
 $x=5;
 $y=10;
+class test{
+    function pr() {
+        echo "class name ". __CLASS__ ."\n";
+        echo  'function name is ' . __FUNCTION__ ."\n";
+    }
+}
+$t = new test();
+$t->pr();
 $cars=array("vovle","bwm","benzs");
 echo "php\n ";
 echo "my first php script\n";
 function myTest(){
     static $y=10;
-    echo "Test variables inside the function:\n";//æºä»£ç ä¸­å®ç°æ¢è¡Œ
+    echo "Test variables inside the function:\n";//Ô´´úÂëÖĞÊµÏÖ»»ĞĞ
     echo $y;
     $y++;
     echo "\n";
-    echo "</br>";//åœ¨ç½‘é¡µä¸­å®ç°äº†æ¢è¡Œ
+    echo "</br>";//ÔÚÍøÒ³ÖĞÊµÏÖÁË»»ĞĞ
  }
  myTest();
  echo "Test variables outside the function:\n";
@@ -65,9 +73,9 @@ echo "\n";
  foreach ($x1 as $x){
      echo $x."\n";
  }
- //å°†æ•°ç»„è¿›è¡Œæ’åº
+ //½«Êı×é½øĞĞÅÅĞò
  $number=array(1,23,45,36,7,8,88);
- sort($number);//å‡åº
+ sort($number);//ÉıĞò
  $arrlen=count($number);
  for($i=0;$i<$arrlen;$i++)
  {
@@ -75,10 +83,20 @@ echo "\n";
      echo " ";
  }
  echo "\n";
- rsort($number);//é™åºæ’åˆ—
+ rsort($number);//½µĞòÅÅÁĞ
  for($i=0;$i<$arrlen;$i++){
      echo $number[$i];
      echo" ";
  }
  echo "\n";
- ?>
+ echo $_SERVER['PHP_SELF'];
+ echo "\n";
+ function WriteMyname($a,$b){
+     echo "my name is ".$a." ".$b."\n";
+     return $a.$b."\n";
+ }
+ WriteMyname("like","you");
+ echo WriteMyname("love ","you")."\n";
+ echo "this is ". __LINE__ ."line\n";
+ echo "this file in". __FILE__ ."  \n"
+?>
