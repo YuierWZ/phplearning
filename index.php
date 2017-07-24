@@ -7,6 +7,7 @@ class test{
         echo  'function name is ' . __FUNCTION__ ."\n";
     }
 }
+
 $t = new test();
 $t->pr();
 $cars=array("vovle","bwm","benzs");
@@ -97,6 +98,177 @@ echo "\n";
  }
  WriteMyname("like","you");
  echo WriteMyname("love ","you")."\n";
+//  class Site {
+//      /* 成员变量 */
+//      var $url;
+//      var $title;
+     
+//      /* 成员函数 */
+//      function setUrl($par){
+//          $this->url = $par;
+//      }
+     
+//      function getUrl(){
+//          echo $this->url . PHP_EOL;
+//      }
+     
+//      function setTitle($par){
+//          $this->title = $par;
+//      }
+     
+//      function getTitle(){
+//          echo $this->title . PHP_EOL;
+//      }
+//  }
+class Site{
+    var $url;
+    var $title;
+    function __construct($par1,$par2){
+        $this->url=$par1;
+        $this->title=$par2;
+    }
+    function setUrl($par){
+        $this->url=$par;
+    }
+    function getUrl(){
+        echo  $this->url. PHP_EOL;    
+    }
+    function setTitle($par){
+        $this->title=$par;
+    }
+    function getTitle(){
+        echo $this->title.PHP_EOL;
+    }
+}
+//  $youj = new Site;
+//  $taobao = new Site;
+//  $google = new Site;
+//  $youj->setTitle( "W3Cschool教程" );
+//  $taobao->setTitle( "淘宝" );
+//  $google->setTitle( "Google 搜索" );
+ $youj=new Site("wwww.w3cschool.com","w3教程");
+ $taobao=new Site("www.taobao.com","淘宝");
+ $google=new Site("www.google.com","谷歌搜索");
+//  $youj->setUrl( 'www.w3cschool.cn' );
+//  $taobao->setUrl( 'www.taobao.com' );
+//  $google->setUrl( 'www.google.com' );
+ // 调用成员函数，获取标题和URL
+//  $youj->getTitle();
+//  $taobao->getTitle();
+//  $google->getTitle();
+$youj->getTitle();
+$taobao->getTitle();
+$google->getTitle();
+ $youj->getUrl();
+ $taobao->getUrl();
+ $google->getUrl();
+ 
+ class MyDestructableClass {
+     function __construct() {
+         print "构造函数\n";
+         $this->name = "MyDestructableClass";
+     }
+     
+     function __destruct() {
+         print "销毁 " . $this->name . "\n";
+     }
+ }
+ $obj = new MyDestructableClass();
+ class child_Site extends Site{
+     var $category;
+     function setCate($par){
+         $this->category = $par;
+     }
+     
+     function getCate(){
+         echo $this->category . PHP_EOL;
+     }
+ }
+ interface iTemplate{
+     function setVariable($name, $var);
+     function getHtml($template);
+ }
+ class Template implements iTemplate{
+//      private $vars = array();
+     
+//      public function setVariable($name, $var)
+//      {
+//          $this->vars[$name] = $var;
+//      }
+     
+//      public function getHtml($template)
+//      {
+//          foreach($this->vars as $name => $value) {
+//              $template = str_replace('{' . $name . '}', $value, $template);
+//          }
+         
+//          return $template;
+//      }
+       private $vars=array();
+       function setVariable($name, $var){
+           $this->vars[$name]=$var;
+       }
+       function getHtml($template){
+           foreach ($this->vars as $name=>$value){
+               $template=str_replace("{".$name."}", $value, $template);
+           }
+           return $template;
+       }
+ }
+ abstract class AbstractClass
+ {
+     // 强制要求子类定义这些方法
+     abstract protected function getValue();
+     abstract protected function prefixValue($prefix);
+     
+     // 普通方法（非抽象方法）
+     public function printOut() {
+         print $this->getValue() . PHP_EOL;
+     }
+ }
+ 
+ class ConcreteClass1 extends AbstractClass
+ {
+     protected function getValue() {
+         return "ConcreteClass1";
+     }
+     
+     public function prefixValue($prefix) {
+         return "{$prefix}ConcreteClass1";
+     }
+ }
+ 
+ class ConcreteClass2 extends AbstractClass
+ {
+     public function getValue() {
+         return "ConcreteClass2";
+     }
+     
+     public function prefixValue($prefix) {
+         return "{$prefix}ConcreteClass2";
+     }
+ }
+ 
+ $class1 = new ConcreteClass1;
+ $class1->printOut();
+ echo $class1->prefixValue('FOO_') . PHP_EOL;
+ $class2 = new ConcreteClass2;
+ $class2->printOut();
+ echo $class2->prefixValue('FOO_') . PHP_EOL;
+ class Foo {
+     public static $my_static = 'foo';
+     
+     public function staticValue() {
+         return self::$my_static;
+     }
+ }
+ 
+ echo Foo::$my_static . PHP_EOL;
+ $foo = new Foo();
+ 
+ print $foo->staticValue() . PHP_EOL;
  echo "this is ". __LINE__ ."line\n";
  echo "this file in". __FILE__ ."  \n"
+
+
 ?>
